@@ -30,6 +30,15 @@ disabled_user = User.create({
     disabled: true
   })
 
+Academics = Category.create({
+    name: "Academics"
+  })
+
+Facility = Category.create({
+    name: "Facility"
+  })
+
+
 [
   {url: "https://producthunt.com", title: "Product Hunt - Best way to find new products and services"},
   {url: "https://news.ycombinator.com/", title: "Hacker News - fantastic articles about tech"},
