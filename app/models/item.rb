@@ -6,21 +6,27 @@ class Item < ActiveRecord::Base
   has_many :comments, class_name: "ItemComment"
 
   validates :title, presence: true, length: { maximum: 250 }, allow_blank: false, allow_nil: false
+  validates :category, presence: true, allow_blank: false, allow_nil: false
   validates :id, uniqueness: true
 
   validate do
-    if content.blank? && url.blank?
-      errors.add(:url, 'Submit a URL or Content')
+    if category_id.blank?
+      errors.add(:category_id, 'Select a category')
     end
-    if content.present? && url.present?
-      errors.add(:url, 'Submit a URL or Content but not Both.')
-    end
+    # if content.blank? && url.blank?
+    #   errors.add(:url, 'Submit a URL or Content')
+    # end
+    # if content.present? && url.present?
+    #   errors.add(:url, 'Submit a URL or Content but not Both.')
+    # end
   end
-  validates :url, url: {allow_nil: true, allow_blank: true}
+
+  # validates :url, url: {allow_nil: true, allow_blank: true}
 
   def score
     self.get_upvotes.size - self.get_downvotes.size
   end
+
 
   scope :active, -> { where(disabled: false) }
   scope :disabled, -> { where(disabled: true) }
