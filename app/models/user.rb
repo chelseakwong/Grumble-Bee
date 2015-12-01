@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
-  acts_as_voter
   
   before_create do
     begin
@@ -8,6 +7,7 @@ class User < ActiveRecord::Base
     end while self.class.exists?(token: token)
   end
 
+  acts_as_voter
 
   validates :password, length: { minimum: 5 }, if: :password
   validates :password, confirmation: true, if: :password
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true, length: {minimum: 2}
 
   has_many :items
-  has_many :votes
+  # has_many :votes
   has_many :item_comments
 
   def item_votes

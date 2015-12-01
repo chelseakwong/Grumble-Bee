@@ -21,11 +21,13 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   host: localhost
+  port: 5432
 
 development:
   <<: *default
   database: rails-hackernews-reddit-producthunt_development
   host: localhost
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,6 +63,7 @@ test:
   <<: *default
   database: rails-hackernews-reddit-producthunt_test
   host: localhost
+  port: 5432
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -87,3 +90,4 @@ production:
   username: rails-hackernews-reddit-producthunt
   password: <%= ENV['RAILS-HACKERNEWS-REDDIT-PRODUCTHUNT_DATABASE_PASSWORD'] %>
   host: localhost
+  port: 5432

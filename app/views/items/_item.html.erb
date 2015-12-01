@@ -22,11 +22,13 @@
             <br>
              <a href="#">
               <%= link_to like_item_path(item), method: :put do %>
+              UP
               <%= item.get_upvotes.size %>
               <% end %>
             </a>
             <a href="#">
               <%= link_to dislike_item_path(item), method: :put do %>
+              DOWN
               <%= item.get_downvotes.size %>
               <% end %>
             </a>

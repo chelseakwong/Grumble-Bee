@@ -49,28 +49,27 @@ class ItemsController < ApplicationController
 
   def upvote
     @item = Item.find(params[:id])
-    # @item.unvote_by current_user
-    @item.upvote_by current_user
-    # @item.update_attribute(:upvotes_count,@item.get_upvotes.size)
-    # @item.update_attribute(:downvotes_count,@item.get_downvotes.size)
-    # @item.update_attribute(:score,@item.score)
+    #dislike -> neutral
+    if current_user.find_disliked_items.include? @item 
+      @item.undisliked_by current_user
+    #like/neutral -> like
+    else
+      @item.liked_by current_user
+    end
     redirect_to :back
   end
 
   def downvote
     @item = Item.find(params[:id])
-    # @item.unvote_by current_user
-    @item.downvote_by current_user
-    # @item.update_attribute(:upvotes_count,@item.get_upvotes.size)
-    # @item.update_attribute(:downvotes_count,@item.get_downvotes.size)
-    # @item.update_attribute(:score,@item.score)
+    #like -> neutral
+    if current_user.find_liked_items.include? @item
+      @item.unliked_by current_user
+    #dislike/neutral -> dislike
+    else
+      @item.disliked_by current_user
+    end
     redirect_to :back
   end
-
-  # def unvote
-  #   @item.unvote_by current_user
-  #   redirect_to :back
-  # end
 
   private
   def set_item
