@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
     # @item.update_attribute(:upvotes_count,@item.get_upvotes.size)
     # @item.update_attribute(:downvotes_count,@item.get_downvotes.size)
     # @item.update_attribute(:score,@item.score)
-    redirect_to items_path
+    redirect_to @item
   end
 
   def downvote
@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
     # @item.update_attribute(:upvotes_count,@item.get_upvotes.size)
     # @item.update_attribute(:downvotes_count,@item.get_downvotes.size)
     # @item.update_attribute(:score,@item.score)
-    redirect_to items_path
+    redirect_to @item
   end
 
   # def unvote
