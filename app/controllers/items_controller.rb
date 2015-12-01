@@ -50,18 +50,18 @@ class ItemsController < ApplicationController
   def upvote
     @item = Item.find(params[:id])
     @item.upvote_by current_user
-    @item.update_attribute(:upvotes_count,@item.get_upvotes.size)
-    @item.update_attribute(:downvotes_count,@item.get_downvotes.size)
-    @item.update_attribute(:score,@item.score)
+    # @item.update_attribute(:upvotes_count,@item.get_upvotes.size)
+    # @item.update_attribute(:downvotes_count,@item.get_downvotes.size)
+    # @item.update_attribute(:score,@item.score)
     redirect_to :back
   end
 
   def downvote
     @item = Item.find(params[:id])
     @item.downvote_by current_user
-      @item.update_attribute(:upvotes_count,@item.get_upvotes.size)
-    @item.update_attribute(:downvotes_count,@item.get_downvotes.size)
-    @item.update_attribute(:score,@item.score)
+    # @item.update_attribute(:upvotes_count,@item.get_upvotes.size)
+    # @item.update_attribute(:downvotes_count,@item.get_downvotes.size)
+    # @item.update_attribute(:score,@item.score)
     redirect_to :back
   end
 
