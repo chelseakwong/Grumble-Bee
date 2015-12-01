@@ -21,10 +21,14 @@
             </small>
             <br>
              <a href="#">
-              <%= link_to "upvote",like_item_path(item), method: :put %>
+              <%= link_to like_item_path(item), method: :put do %>
+              <%= item.get_upvotes.size %>
+              <%= end %>
             </a>
             <a href="#">
-              <%= link_to "downvote",dislike_item_path(item), method: :put %>
+              <%= link_to dislike_item_path(item), method: :put do %>
+              <%= item.get_downvotes.size %>
+              <%= end %>
             </a>
           </div>
         </td>
