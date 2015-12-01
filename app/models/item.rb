@@ -23,10 +23,9 @@ class Item < ActiveRecord::Base
 
   # validates :url, url: {allow_nil: true, allow_blank: true}
 
-  def score
+  def score_votes
     self.get_upvotes.size - self.get_downvotes.size
   end
-
 
   scope :active, -> { where(disabled: false) }
   scope :disabled, -> { where(disabled: true) }

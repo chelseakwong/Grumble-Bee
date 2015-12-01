@@ -15,7 +15,7 @@
           <div>
             <h4><%= link_to item.title, item %></h4>
             <small>
-              <%= item.score %> points | 
+              <%= item.score_votes %> points | 
               posted by <%= render_link_to_user(item.user) %> | <%= link_to "#{time_ago_in_words(item.created_at)} ago", item %>
               | <%= link_to "#{item.comments_count} comments", item %>
             </small>
