@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
-
+  acts_as_voter
+  
   before_create do
     begin
       self.token = SecureRandom.hex
