@@ -23,12 +23,12 @@
              <a href="#">
               <%= link_to like_item_path(item), method: :put do %>
               <%= item.get_upvotes.size %>
-              <%= end %>
+              <% end %>
             </a>
             <a href="#">
               <%= link_to dislike_item_path(item), method: :put do %>
               <%= item.get_downvotes.size %>
-              <%= end %>
+              <% end %>
             </a>
           </div>
         </td>
