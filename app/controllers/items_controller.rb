@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :require_login, only: [:new, :create, :edit, :update, :toggle]
+  before_action :require_login, only: [:new, :create, :edit, :update, :toggle, :upvote, :downvote]
   before_action :set_item, only: [:show]
   before_action :set_user_item, only: [:edit, :update, :toggle]
 
