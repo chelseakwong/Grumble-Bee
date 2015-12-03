@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-admin = User.create({
+admin = User.find_by(username: "admin") ||
+    User.create({
     username: "admin",
     password: "password",
     password_confirmation: "password",
@@ -15,14 +16,16 @@ admin = User.create({
     admin: true
   })
 
-user = User.create({
+user = User.find_by(username: "user") ||
+    User.create({
     username: "user",
     password: "password",
     password_confirmation: "password",
     about: "About the Basic user",
   })
 
-disabled_user = User.create({
+disabled_user =User.find_by(username: "disabled_user") ||
+    User.create({
     username: "disabled_user",
     password: "password",
     password_confirmation: "password",
@@ -30,22 +33,25 @@ disabled_user = User.create({
     disabled: true
   })
 
-Food = Category.create({
+Food = Category.find_or_create_by({
     name: "Food"
   })
 
-Facilities = Category.create({
+Facilities = Category.find_or_create_by({
     name: "Facilities"
   })
 
-Social = Category.create({
+Social = Category.find_or_create_by({
     name: "Social"
   })
 
-
-Academics = Category.create({
+Academics = Category.find_or_create_by({
     name: "Academics"
   })
+
+Other = Category.find_or_create_by({
+  name: "Other"
+})
 
 
 # [
