@@ -2,33 +2,39 @@
   <%= render 'components/login_register' %>
 <% end %>
 
-<h2>Buzz</h2>
+
 
 <% if items.empty? %>
-  No complaints to display! Go <%= link_to 'throw some shade', new_item_path %>.
+  No complaints to display! Go <%= link_to 'Buzz about it', new_item_path %>!
 <% else %>
-  <table class="table table-striped">
+  <div>
+        <h2><%= 'Buzz'%></h2>
+      </div>
+      
+  <table>
     <tbody>
       <% items.each do |item| %>
       <tr>
-        <td>
+        <td class="grumble_feed">
           <div>
-            <h4><%= link_to item.title, item %></h4>
+            <h4><%= item.title%> </h4>
+            
             <small>
               <%= item.score_votes %> points | 
               posted by <%= render_link_to_user(item.user) %> | <%= link_to "#{time_ago_in_words(item.created_at)} ago", item %>
               | <%= link_to "#{item.comments_count} comments", item %>
             </small>
+
             <br>
              <a href="#">
               <%= link_to like_item_path(item), method: :put do %>
-              UP
+              <%= image_tag("thumbs-up.png", :class => "inverted")%>
               <%= item.get_upvotes.size %>
               <% end %>
             </a>
             <a href="#">
               <%= link_to dislike_item_path(item), method: :put do %>
-              DOWN
+              <%= image_tag("thumbs-down.png")%>
               <%= item.get_downvotes.size %>
               <% end %>
             </a>
