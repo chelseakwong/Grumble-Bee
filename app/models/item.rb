@@ -13,12 +13,6 @@ class Item < ActiveRecord::Base
     if category_id.blank?
       errors.add(:category_id, 'Select a category')
     end
-    # if content.blank? && url.blank?
-    #   errors.add(:url, 'Submit a URL or Content')
-    # end
-    # if content.present? && url.present?
-    #   errors.add(:url, 'Submit a URL or Content but not Both.')
-    # end
   end
 
   # validates :url, url: {allow_nil: true, allow_blank: true}
