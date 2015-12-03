@@ -15,7 +15,7 @@
         <%= link_to_list_item("TOP", items_path) %>
         <%= link_to_list_item("NEW", items_path(newest: true)) %>
         <% if current_user %>
-          <%= link_to_list_item 'SUBMIT', new_item_path %>
+          <%= link_to_list_item 'GRUMBLE', new_item_path %>
           <% if @item && @item.persisted? && @item.user_id == current_user.id %>
             <%= link_to_list_item 'EDIT', edit_item_path(@item) %>
           <% end %>

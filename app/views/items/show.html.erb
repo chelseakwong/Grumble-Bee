@@ -8,10 +8,9 @@
 <p>
   <strong>
     <h1><%= link_to @item.title, @item, title: @item.url %></h1>
-    <small>(<%= @item.url %>)</small>
   </strong>
-  <span><small>(posted by: <%= link_to @item.user.username, @item.user %>)</small></span>
-</p>
+<!--   <span><small>(posted by: <%= link_to @item.user.username, @item.user %>)</small></span>
+ --></p>
 
 <p>
   <strong> Category: </strong>
@@ -43,8 +42,8 @@
     <%= content_tag_for(:li, comment) do %>
       <span>
         created: <%= link_to time_ago_in_words(comment.created_at), item_path(@item, anchor: "comment") %> ago.
-        <small>(posted by: <%= link_to comment.user.username, comment.user %>)</small>
-      </span>
+<!--         <small>(posted by: <%= link_to comment.user.username, comment.user %>)</small>
+ -->      </span>
       <br/>
       <small>
         <%= comment.content %>
