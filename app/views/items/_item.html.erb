@@ -5,9 +5,6 @@
 <% if items.empty? %>
   No complaints to display! Go <%= link_to 'Buzz about it', new_item_path %>!
 <% else %>
-  <div>
-        <h2><%= 'Buzz'%></h2>
-      </div>
       
   <table>
     <tbody>
@@ -32,7 +29,7 @@
             </a>
             <a href="#">
               <%= link_to dislike_item_path(item), method: :put do %>
-              <%= image_tag("thumbs-down.png")%>
+              <%= image_tag("thumbs-down.png",:class => "inverted")%>
               <%= item.get_downvotes.size %>
               <% end %>
             </a>
