@@ -1,12 +1,12 @@
-/*	################################################################
+/*  ################################################################
 
-	Author: Carlos Alvarez
-	URL: http://alvarez.is
+  Author: Carlos Alvarez
+  URL: http://alvarez.is
 
-	Project Name: SOLID - Bootstrap 3 Theme
-	Version: 1.0
-	URL: http://alvarez.is
-	
+  Project Name: SOLID - Bootstrap 3 Theme
+  Version: 1.0
+  URL: http://alvarez.is
+  
 ################################################################# */
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,700,900);
 @import url(http://fonts.googleapis.com/css?family=Lato:400,900);
@@ -14,8 +14,8 @@
 //@import url("prettyPhoto.css") screen;
 //@import url("hoverex-all.css") screen;
 
-/*	################################################################
-	1. GENERAL STRUCTURES
+/*  ################################################################
+  1. GENERAL STRUCTURES
 ################################################################# */
 * {
   margin: 0;
@@ -28,11 +28,41 @@ body {
   background: #ffffff;
   margin: 0;
   height: 100%;
-  color: #384452;
+  color: #000000;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   /* Margin bottom by footer height */
   margin-bottom: $footerHeight;
+}
+
+table{
+  width: 100%;
+}
+
+.table-content{
+  overflow-y: auto; 
+}
+
+tbody tr:nth-child(odd) {
+   background-color: black;
+   width: 100%;
+   margin: 25px;
+   color: white;
+   .inverted{
+    filter: invert(100%);
+   }
+}
+
+tbody tr:nth-child(even) {
+   background-color: #ffff33;
+   width: 100%;
+   margin: 25px;
+   color: black;
+}
+
+.grumble_feed{
+  padding: 15px;
+  width: 100%;
 }
 
 .footer {
@@ -57,7 +87,7 @@ p {
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  color: #384452;
+  color: #000000;
   margin-top: 10px;
 }
 
@@ -75,12 +105,12 @@ a {
   -o-transition: background-color .4s linear, color .4s linear;
   -ms-transition: background-color .4s linear, color .4s linear;
   transition: background-color .4s linear, color .4s linear;
+  color: #b3b3b3;
 }
 
 a:hover,
 a:focus {
-  text-decoration: none;
-  color: #01b2fe;
+  text-decoration: underline;
 }
 
 ::-moz-selection {
@@ -99,8 +129,8 @@ a:focus {
   text-align: center
 }
 
-/*	################################################################
-	BOOTSTRAP MODIFICATIONS & TWEAKS
+/*  ################################################################
+  BOOTSTRAP MODIFICATIONS & TWEAKS
 ################################################################# */
 .navbar {
   min-height: 70px;
@@ -114,7 +144,7 @@ a:focus {
 }
 
 .navbar-header .navbar-brand {
-  color: white;
+  color: #ffff33;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -124,21 +154,21 @@ a:focus {
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-  color: #00b3fe;
+  color: #ffff66;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #00b3fe;
+  color: #ffff66;
   background-color: transparent;
 }
 
 .navbar-default {
-  background-color: #384452;
+  background-color: #000000;
   border-color: transparent;
 }
 
 .dropdown-menu {
-  background: #384452;
+  background: #000000;
 }
 
 .dropdown-menu > li > a {
@@ -218,14 +248,14 @@ a:focus {
   margin-bottom: 25px;
 }
 
-/*	################################################################
-	SITE WRAPS
+/*  ################################################################
+  SITE WRAPS
 ################################################################# */
 
 #headerwrap {
   background-color: #00b3fe;
-  //	min-height: 550px;
-  //	padding-top: 100px;
+  //  min-height: 550px;
+  //  padding-top: 100px;
   padding-bottom: 0px;
   text-align: center;
 }
@@ -357,8 +387,8 @@ a:focus {
   margin-bottom: 60px;
 }
 
-/*	################################################################
-	PAGE CONFIGURATIONS
+/*  ################################################################
+  PAGE CONFIGURATIONS
 ################################################################# */
 /* General Tweaks */
 
