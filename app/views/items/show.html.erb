@@ -7,7 +7,7 @@
 <% end %>
 <p>
   <strong>
-    <h1><%= link_to @item.title, @item, title: @item.url %></h1>
+    <h1><%= @item.title %></h1>
   </strong>
 <!--   <span><small>(posted by: <%= link_to @item.user.username, @item.user %>)</small></span>
  --></p>
@@ -22,10 +22,14 @@
 </p>
 
 <a href="#">
-  <%= link_to "upvote",like_item_path(@item), method: :put %>
+  <%= link_to like_item_path(@item), method: :put do%>
+  <%= image_tag("thumbs-up.png")%>
+  <% end %>
 </a>
 <a href="#">
-  <%= link_to "downvote",dislike_item_path(@item), method: :put %>
+  <%= link_to dislike_item_path(@item), method: :put do%>
+  <%= image_tag("thumbs-down.png")%>
+  <% end %>
 </a>
 
 <ul>
