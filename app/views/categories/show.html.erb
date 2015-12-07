@@ -1,3 +1,4 @@
 <h1><%= @category.name %></h1>
-<%= render partial: 'items/item', locals: {
-    items: @category.items } %>
+
+<%= render partial: 'items/item', locals: { items: @category.items.sort_by {|a| a.score_votes}.reverse } %>
+
