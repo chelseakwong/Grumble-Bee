@@ -4,9 +4,12 @@ class ItemsController < ApplicationController
   before_action :set_user_item, only: [:edit, :update, :toggle]
 
   def index
-    order = params[:newest] ? {created_at: :desc} : {rank: :desc}
-
-    @items = Item.all.sort_by {|a| a.score_votes}.reverse
+    # order = params[:newest] ? {comments_count: :desc} : {rank: :desc}
+    if params[:newest]
+      @items = Item.all.sort_by {|a| a.created_at}.reverse
+    else
+      @items = Item.all.sort_by {|a| a.score_votes}.reverse
+    end
       # order(:score).includes(:user)
     # @votes = @items.includes(:votes).each_with_object({}) do |item, object|
       # object[item.id] = item.votes.map(&:user_id)
