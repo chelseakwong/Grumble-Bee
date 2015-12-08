@@ -1,7 +1,3 @@
-<p>
-  <strong>[score: <%= @item.score_votes %>]</strong>
-  <span>comments: <%= @item.comments_count %></span>
-</p>
 <%= content_for(:title) do %>
   <%= @item.title %>
 <% end %>
@@ -12,46 +8,56 @@
 <!--   <span><small>(posted by: <%= link_to @item.user.username, @item.user %>)</small></span>
  --></p>
 
-<p>
-  <strong> Category: </strong>
-  <% if @item.category %>
-    <%= link_to @item.category.name, @item.category %>
-  <% else %>
-    none
-  <% end %>
+  <div><a><%= link_to @item.url, @item.url, :target=>"_blank" %></a></div>
+
+
+ <p>
+  <strong>Score: <%= @item.score_votes %> | </strong>
+  <span>Comments: <%= @item.comments_count %> | </span>
+   <span>Category: 
+    <% if @item.category %>
+        <%= link_to @item.category.name, @item.category %>
+      <% else %>
+        none
+      <% end %>
+       | 
+  </span>
+  <span>
+    <a href="#">
+    <%= link_to like_item_path(@item), method: :put do%>
+    <%= image_tag("thumbs-up.png")%>
+    <%= @item.get_upvotes.size %>
+    <% end %>
+    </a>
+    <a href="#">
+    <%= link_to dislike_item_path(@item), method: :put do%>
+    <%= image_tag("thumbs-down.png")%>
+    <%= @item.get_downvotes.size %>
+    <% end %>
+    </a>
+</span>
 </p>
 
-<a href="#">
-  <%= link_to like_item_path(@item), method: :put do%>
-  <%= image_tag("thumbs-up.png")%>
-  <% end %>
-</a>
-<a href="#">
-  <%= link_to dislike_item_path(@item), method: :put do%>
-  <%= image_tag("thumbs-down.png")%>
-  <% end %>
-</a>
-
-<ul>
+<ul style="list-style-type:none">
   <% if current_user %>
-    <li>
+    <!-- <li> -->
       <%= simple_form_for([@item, current_user.item_comments.build]) do |f| %>
         <%= f.input :content, label: false, required: true %>
-        <%= f.button :submit %>
+        <%= f.button :submit, "Comment" %>
       <% end %>
-    </li>
+    <!-- </li> -->
   <% end %>
 
   <% @comments.each do |comment| %>
     <%= content_tag_for(:li, comment) do %>
       <span>
-        created: <%= link_to time_ago_in_words(comment.created_at), item_path(@item, anchor: "comment") %> ago.
-<!--         <small>(posted by: <%= link_to comment.user.username, comment.user %>)</small>
- -->      </span>
-      <br/>
-      <small>
+      <p style ="margin-bottom:0;">
         <%= comment.content %>
-      </small>
+      </p>
+      <small style="color:LightGray;margin-top:0;">
+        Posted <%= time_ago_in_words(comment.created_at) %> ago
+        </small>
+       </span>     
     <% end %>
   <% end %>
 </ul>
