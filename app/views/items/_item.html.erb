@@ -12,16 +12,7 @@
       <tr>
         <td class="grumble_feed">
           <div>
-            <h4><%= item.title%> </h4>
-            
-            <small>
-              <%= item.score_votes %> points | 
-              <%= link_to "posted #{time_ago_in_words(item.created_at)} ago", item %>
-              | <%= link_to "#{item.comments_count} comments", item %>
-            </small>
-
-            <br>
-             <a href="#">
+            <h4><%= item.title%>  <a href="#">
               <%= link_to like_item_path(item), method: :put do %>
               <%= image_tag("thumbs-up.png", :class => "inverted")%>
               <%= item.get_upvotes.size %>
@@ -31,7 +22,17 @@
               <%= link_to dislike_item_path(item), method: :put do %>
               <%= image_tag("thumbs-down.png",:class => "inverted")%>
               <%= item.get_downvotes.size %>
-              <% end %>
+              <% end %></h4>
+            
+            <small>
+              <%= item.score_votes %> points | 
+              <%= link_to "posted #{time_ago_in_words(item.created_at)} ago", item %>
+              | <%= link_to "#{item.comments_count} comments", item %>
+            </small>
+
+            
+            
+            
             </a>
           </div>
         </td>

@@ -44,7 +44,7 @@ table{
 }
 
 tbody tr:nth-child(odd) {
-   background-color: black;
+   background-color: #ffff66;
    width: 100%;
    margin: 25px;
    color: white;
@@ -55,10 +55,11 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:nth-child(even) {
-   background-color: #ffff33;
+   background-color: #ffff66;
    width: 100%;
    margin: 25px;
    color: black;
+   border-bottom: 5 px;
 }
 
 .grumble_feed{
@@ -144,6 +145,9 @@ a:focus {
 .navbar-brand {
   font-family: 'Raleway', sans-serif;
   font-weight: 900;
+  &:hover {
+    color: #fff;
+  }
 }
 
 .navbar-header .navbar-brand {
