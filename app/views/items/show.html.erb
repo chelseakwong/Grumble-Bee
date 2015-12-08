@@ -8,6 +8,9 @@
 <!--   <span><small>(posted by: <%= link_to @item.user.username, @item.user %>)</small></span>
  --></p>
 
+  <div><a><%= link_to @item.url, @item.url, :target=>"_blank" %></a></div>
+
+
  <p>
   <strong>Score: <%= @item.score_votes %> | </strong>
   <span>Comments: <%= @item.comments_count %> | </span>
