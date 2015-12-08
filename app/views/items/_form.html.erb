@@ -1,8 +1,7 @@
 <%= simple_form_for(@item) do |f| %>
   <%= f.error_notification %>
  
-  <%= f.input :title, label: "Complaint" %>
-
+  <%= f.input :title, label: "Complaint", placeholder: "Max 250 characters",:input_html=>{:maxlength =>250} %>
   <div class="form-group">
     <%= f.label :category %>
     <%= f.collection_select(:category_id, Category.all, :id, :name, {
@@ -11,9 +10,9 @@
   </div>
 
   <br>
-  <h4>Extras</h4>
+<!--   <h4>Extras</h4>
 
-  <%= f.input :url, as: :url, placeholder: "Link" %>
+  <%= f.input :url, as: :url, placeholder: "Link" %> -->
 
   <%= f.button :submit, "Buzz it" %>
 <% end %>
