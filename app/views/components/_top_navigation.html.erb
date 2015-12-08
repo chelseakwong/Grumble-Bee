@@ -12,6 +12,7 @@
     </div>
     <div class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
+        <%= link_to_list_item "ABOUT", about_url %>
         <%= link_to_list_item("TOP", items_path) %>
         <%= link_to_list_item("NEW", items_path(newest: true)) %>
         <% if current_user %>
@@ -53,6 +54,8 @@
     </div>
   </div>
 </div>
+
+
 <%= render 'components/flash' %>
 
 

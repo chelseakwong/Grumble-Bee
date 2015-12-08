@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     #   profile page
+    @items = @user.items
   end
 
   def edit

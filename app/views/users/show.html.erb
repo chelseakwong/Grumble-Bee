@@ -14,3 +14,33 @@
   <strong>About:</strong>
   <%= @user.about %>
 </p>
+
+<p>
+  <strong>Your posts:</strong>
+</p>
+
+<table>
+    <tbody class = "user_table">
+      <% @items.each do |item| %>
+      <tr>
+        <td class="user_grumble">
+          <div>
+            <h5><%= link_to item.title, item%> </h5>
+            <div>
+            <small>
+              <%= item.score_votes %> points | 
+              <%= "posted #{time_ago_in_words(item.created_at)} ago" %>
+              | <%= "#{item.comments_count} comments"  %>
+              | 
+            </small>
+              <%= image_tag("thumbs-up.png", :class => "normal")%>
+              <%= item.get_upvotes.size %>
+
+              <%= image_tag("thumbs-down.png",:class => "normal")%>
+              <%= item.get_downvotes.size %>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table> 

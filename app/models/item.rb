@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
   # has_many :votes, as: :votable
   has_many :comments, class_name: "ItemComment"
   # scope :desc, order("item.score_votes DESC")
-
+  
   validates :title, presence: true, length: { maximum: 250 }, allow_blank: false, allow_nil: false
   validates :category, presence: true, allow_blank: false, allow_nil: false
   validates :id, uniqueness: true
