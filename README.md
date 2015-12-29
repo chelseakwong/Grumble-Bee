@@ -1,8 +1,6 @@
-# Reddit-Hackernews-ProductHunt Clone on Rails
+# GrumbleBee: inspired and forked from Reddit-Hackernews-ProductHunt Clone on Rails 
 
 **[DEMO](https://hackernews-rails-clone.herokuapp.com/)**
-
-![Screenshot](https://cdn.rawgit.com/blairanderson/rails-hackernews-reddit-producthunt-clone/master/public/screenshot.png)
 
 This is the `readme.md` for a Ruby on Rails application that mimics social news link sharing websites like HackerNews, ProductHunt, and Reddit.
 
